@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     {% block extra_css %}{% endblock %}
 </head>
+
 <body>
     <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
@@ -30,14 +32,17 @@
         <header id="main-header">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container-fluid">
-                    <button class="btn btn-light d-lg-none" onclick="toggleSidebar()">
+                    <button class="btn btn-light" onclick="toggleSidebar()">
                         <i class="fas fa-bars"></i>
                     </button>
                     <a class="navbar-brand" href="/">Conversatórium</a>
                     <div class="navbar-nav ms-auto">
-                        <a class="nav-link" href="/"><i class="fas fa-home"></i> <span class="d-none d-lg-inline">Home</span></a>
-                        <a class="nav-link" href="/login"><i class="fas fa-user"></i> <span class="d-none d-lg-inline">Login</span></a>
-                        <a class="nav-link" href="/saiba-mais"><i class="fas fa-info-circle"></i> <span class="d-none d-lg-inline">Saiba Mais</span></a>
+                        <a class="nav-link" href="/"><i class="fas fa-home"></i> <span
+                                class="d-none d-lg-inline">Home</span></a>
+                        <a class="nav-link" href="/login"><i class="fas fa-user"></i> <span
+                                class="d-none d-lg-inline">Login</span></a>
+                        <a class="nav-link" href="/saiba-mais"><i class="fas fa-info-circle"></i> <span
+                                class="d-none d-lg-inline">Saiba Mais</span></a>
                     </div>
                 </div>
             </nav>
@@ -87,4 +92,5 @@
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     {% block extra_js %}{% endblock %}
 </body>
+
 </html>

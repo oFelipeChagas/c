@@ -35,11 +35,12 @@ Até o momento, realizamos as seguintes implementações principais:
 
 No último commit, fizemos as seguintes alterações:
 
-- Refinamos a responsividade do layout para melhor adaptação em dispositivos móveis
-- Implementamos um sistema de chat básico na página inicial
-- Atualizamos o arquivo `static/css/style.css` com estilos para o chat e melhorias na responsividade
-- Modificamos `templates/home.html` para incluir a estrutura do chat
-- Atualizamos `templates/base.html` para melhorar a navegação em dispositivos móveis
+- Modificamos o comportamento do sidebar para que ele se expanda da lateral da tela para o meio
+- Atualizamos o arquivo `static/css/style.css` para implementar a nova animação do sidebar
+- Modificamos `static/js/script.js` para ajustar a lógica de toggle do sidebar e melhorar a responsividade
+- Atualizamos a lógica para lidar com diferentes tamanhos de tela
+
+Essas alterações melhoram a experiência do usuário, especialmente em dispositivos móveis, onde o sidebar agora se sobrepõe ao conteúdo em vez de empurrá-lo.
 
 ## Próximos Passos
 
