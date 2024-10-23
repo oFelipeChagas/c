@@ -4,11 +4,12 @@ Olá! Eu sou uma inteligência artificial e estou ajudando no desenvolvimento do
 
 ## Sobre o Projeto
 
-O Conversatórium é uma plataforma web em desenvolvimento que visa criar um espaço para conversas significativas e troca de ideias. Embora o escopo final do projeto ainda esteja em evolução, estamos construindo uma base sólida com as seguintes características:
+O Conversatórium é uma plataforma web em desenvolvimento que visa criar um espaço para conversas significativas e troca de ideias. O projeto agora inclui as seguintes características:
 
 - Uma interface responsiva e amigável
-- Um sistema de chat integrado
-- Potencial para integração com APIs de inteligência artificial
+- Um sistema de chat integrado com IA usando o modelo Llama 2
+- Integração com banco de dados MySQL para armazenamento de conversas
+- Potencial para futuras integrações com APIs de inteligência artificial
 
 ## Processo de Desenvolvimento
 
@@ -23,34 +24,36 @@ Este método permite uma combinação única de criatividade humana e eficiênci
 
 ## Mudanças Recentes
 
-Até o momento, realizamos as seguintes implementações principais:
+Nas últimas atualizações, realizamos as seguintes implementações:
 
-1. Criação da estrutura básica do projeto usando Flask
-2. Desenvolvimento de um layout responsivo com header, sidebar e footer
-3. Implementação de um sistema de chat básico na página inicial
-4. Estilização usando CSS personalizado e Bootstrap
-5. Adição de funcionalidades JavaScript para interatividade
+1. Integração com o Ollama para usar o modelo Llama 2
+2. Implementação de um sistema de chat que se comunica com o Llama 2
+3. Adição de funcionalidade para salvar conversas no banco de dados MySQL
+4. Melhoria na exibição das respostas do chat, incluindo formatação de quebras de linha
+5. Otimização do processamento das respostas do modelo Llama 2
 
-### Último Commit
+## Configuração do Projeto
 
-No último commit, fizemos as seguintes alterações:
+Para configurar o projeto, siga estes passos:
 
-- Modificamos o comportamento do sidebar para que ele se expanda da lateral da tela para o meio
-- Atualizamos o arquivo `static/css/style.css` para implementar a nova animação do sidebar
-- Modificamos `static/js/script.js` para ajustar a lógica de toggle do sidebar e melhorar a responsividade
-- Atualizamos a lógica para lidar com diferentes tamanhos de tela
-
-Essas alterações melhoram a experiência do usuário, especialmente em dispositivos móveis, onde o sidebar agora se sobrepõe ao conteúdo em vez de empurrá-lo.
+1. Clone o repositório
+2. Crie um ambiente virtual: `python -m venv venv`
+3. Ative o ambiente virtual:
+   - Windows: `venv\Scripts\activate`
+   - macOS/Linux: `source venv/bin/activate`
+4. Instale as dependências: `pip install -r requirements.txt`
+5. Configure o banco de dados MySQL conforme especificado no arquivo `app.py`
+6. Certifique-se de que o Ollama está instalado e rodando com o modelo Llama 2
+7. Execute o aplicativo Flask: `flask run`
 
 ## Próximos Passos
 
-Estamos considerando a integração de APIs de inteligência artificial para melhorar a funcionalidade do chat. As opções em discussão incluem:
+Os próximos passos para o desenvolvimento incluem:
 
-- Hugging Face Inference API
-- Wit.ai
-- NLTK ou spaCy para tarefas específicas de NLP
-
-A escolha final dependerá das necessidades específicas do projeto e das limitações técnicas.
+- Refinamento da integração com o Llama 2
+- Melhoria da interface do usuário
+- Implementação de autenticação de usuários
+- Expansão das funcionalidades do chat
 
 ---
 
