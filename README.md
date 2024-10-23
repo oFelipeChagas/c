@@ -65,8 +65,8 @@ Certifique-se de ter instalado:
 2. Navegue até o diretório onde deseja clonar o projeto.
 3. Execute o comando:
    ```
-   git clone https://github.com/seu-usuario/conversatorium.git
-   cd conversatorium
+   git clone https://github.com/oFelipeChagas/c.git
+   cd c
    ```
 
 ### 3. Configurar o Ambiente Virtual
