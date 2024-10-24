@@ -11,6 +11,8 @@ O Conversatórium é uma plataforma web em desenvolvimento que visa criar um esp
 - Um sistema de chat integrado com IA usando o modelo Llama 2
 - Integração com banco de dados MySQL para armazenamento de conversas
 - Potencial para futuras integrações com APIs de inteligência artificial
+- **Novo:** Favicon adicionado para melhor identificação do site no navegador
+- **Novo:** Texto engraçado no footer com tamanho de fonte reduzido em 15% para melhor estética
 
 ## Processo de Desenvolvimento
 
@@ -31,6 +33,8 @@ Nas últimas atualizações, realizamos as seguintes implementações:
 2. Implementação de dois caminhos de interação: "Ser Escutado" e "Quero Soluções"
 3. Criação de páginas específicas para cada modo de interação
 4. Atualização do sistema de roteamento no backend para suportar as novas páginas
+5. **Adição de Favicon:** Um ícone foi adicionado para melhor identificação do site no navegador
+6. **Ajuste no Footer:** O texto engraçado no footer agora tem um tamanho de fonte reduzido em 15%
 
 ## Configuração do Projeto
 

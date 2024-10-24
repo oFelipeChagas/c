@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Conversatórium{% endblock %}</title>
+    <link rel="icon" href="{{ url_for('static', filename='windows.svg') }}" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
@@ -76,20 +77,65 @@
                 <hr>
                 <div class="row">
                     <div class="col-md-6">
-                        <p>&copy; 2023 Conversatórium. Todos os direitos reservados.</p>
+                        <p class="footer-text">&copy; 2023 Conversatórium. Direitos reservados, mas a internet é um lugar selvagem.</p>
                     </div>
                     <div class="col-md-6 text-md-end">
-                        <a href="#" class="me-3"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="me-3 social-link" data-url="http://www.instagram.com.br/ofelipechagas"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="me-3 social-link" data-url="http://www.fb.com/chagasf"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="me-3 social-link" data-url="http://www.x.com/stamagoshi"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
             </div>
         </footer>
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="redirectModal" tabindex="-1" aria-labelledby="redirectModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="redirectModalLabel">Redirecionamento</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Você será redirecionado para as redes sociais do nosso criador. Clique em "Continuar" para prosseguir.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="continueButton">Continuar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const socialLinks = document.querySelectorAll('.social-link');
+            const continueButton = document.getElementById('continueButton');
+            let targetUrl = '';
+
+            socialLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    targetUrl = this.getAttribute('data-url');
+                    const sessionKey = `redirected_${targetUrl}`;
+                    if (!sessionStorage.getItem(sessionKey)) {
+                        const modal = new bootstrap.Modal(document.getElementById('redirectModal'));
+                        modal.show();
+                        continueButton.onclick = function() {
+                            window.open(targetUrl, '_blank');
+                            sessionStorage.setItem(sessionKey, 'true');
+                            modal.hide();
+                        };
+                    } else {
+                        window.open(targetUrl, '_blank');
+                    }
+                });
+            });
+        });
+    </script>
     {% block extra_js %}{% endblock %}
 </body>
 
