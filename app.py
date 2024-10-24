@@ -3,21 +3,26 @@ import requests
 import mysql.connector
 from mysql.connector import Error
 import json
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  # Carrega as variáveis de ambiente do arquivo .env
 
 app = Flask(__name__)
 
-# Configuração do MySQL
-db_config = {
-    'host': 'localhost',
-    'user': 'root',
-    'password': '1234',
-    'database': 'conversatorium_db'
-}
+# Função para obter as configurações do banco de dados
+def get_db_config():
+    return {
+        'host': os.getenv('MYSQL_HOST'),
+        'user': os.getenv('MYSQL_USER'),
+        'password': os.getenv('MYSQL_PASSWORD'),
+        'database': os.getenv('MYSQL_DATABASE')
+    }
 
 # Função para conectar ao MySQL
 def create_db_connection():
     try:
-        connection = mysql.connector.connect(**db_config)
+        connection = mysql.connector.connect(**get_db_config())
         if connection.is_connected():
             return connection
     except Error as e:

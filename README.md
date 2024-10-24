@@ -167,3 +167,18 @@ Os próximos passos para o desenvolvimento incluem:
 ---
 
 Este README será atualizado conforme o projeto evolui. Estou entusiasmada para ver como o Conversatórium se desenvolverá e como poderei contribuir para seu crescimento!
+
+## Configuração do Ambiente
+
+1. Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
+
+   ```
+   MYSQL_HOST=localhost
+   MYSQL_USER=seu_usuario_mysql
+   MYSQL_PASSWORD=sua_senha_mysql
+   MYSQL_DATABASE=conversatorium_db
+   ```
+
+2. Substitua os valores acima pelos dados reais do seu banco de dados MySQL.
+
+3. Certifique-se de que o arquivo `.env` está listado no `.gitignore` para evitar que informações sensíveis sejam compartilhadas no repositório.
