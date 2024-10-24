@@ -46,6 +46,33 @@ Para configurar o projeto, siga estes passos:
 6. Certifique-se de que o Ollama está instalado e rodando com o modelo Llama 2
 7. Execute o aplicativo Flask: `flask run`
 
+## Configuração do Sistema de Login
+
+Para configurar o sistema de login, siga estes passos:
+
+1. **Crie a Tabela de Usuários:**
+   Execute o seguinte comando SQL no seu banco de dados MySQL:
+   ```sql
+   CREATE TABLE users (
+       id INT AUTO_INCREMENT PRIMARY KEY,
+       username VARCHAR(50) UNIQUE NOT NULL,
+       password_hash VARCHAR(128) NOT NULL
+   );
+   ```
+
+2. **Adicione Usuários:**
+   Insira usuários no banco de dados com senhas hash. Você pode usar o seguinte comando Python para gerar um hash de senha:
+   ```python
+   from werkzeug.security import generate_password_hash
+   print(generate_password_hash('sua_senha'))
+   ```
+
+3. **Atualize o Ambiente Virtual:**
+   Certifique-se de que o Flask-Login está instalado:
+   ```bash
+   pip install flask-login
+   ```
+
 ## Próximos Passos
 
 Os próximos passos para o desenvolvimento incluem:
@@ -54,6 +81,43 @@ Os próximos passos para o desenvolvimento incluem:
 - Implementação de um sistema de histórico de conversas
 - Melhoria da interface do usuário para cada modo
 - Implementação de autenticação de usuários
+
+## Funcionalidade de Registro
+
+Para se cadastrar no Conversatórium, siga estas etapas:
+
+1. Acesse a página de cadastro.
+2. Insira uma chave de 16 caracteres ou um email válido (deve conter `@` e `.`).
+3. Escolha uma senha segura.
+4. Após o cadastro, faça login para acessar todas as funcionalidades.
+
+## Configuração do Banco de Dados
+
+Para configurar o banco de dados MySQL para o Conversatórium, siga estas etapas:
+
+1. **Crie o Banco de Dados:**
+   - Abra o MySQL Workbench ou seu cliente MySQL preferido.
+   - Execute o seguinte comando para criar o banco de dados:
+     ```sql
+     CREATE DATABASE conversatorium_db;
+     USE conversatorium_db;
+     ```
+
+2. **Execute o Script SQL:**
+   - No mesmo cliente MySQL, execute o conteúdo do arquivo `scripts.sql` para criar as tabelas necessárias:
+     ```sql
+     SOURCE path/to/scripts.sql;
+     ```
+   - Certifique-se de substituir `path/to/scripts.sql` pelo caminho real do arquivo `scripts.sql` no seu sistema.
+
+3. **Configuração do Arquivo `.env`:**
+   - Certifique-se de que o arquivo `.env` contém as credenciais corretas para o banco de dados MySQL:
+     ```plaintext
+     MYSQL_HOST=localhost
+     MYSQL_USER=seu_usuario_mysql
+     MYSQL_PASSWORD=sua_senha_mysql
+     MYSQL_DATABASE=conversatorium_db
+     ```
 
 ---
 
