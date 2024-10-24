@@ -3,14 +3,34 @@
 {% block title %}Home - Conversatórium{% endblock %}
 
 {% block content %}
-<div class="chat-container">
-    <div class="chat-messages" id="chatMessages">
-        <!-- As mensagens serão inseridas aqui dinamicamente -->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <h1 class="mt-5 mb-4">Bem-vindo ao Conversatórium</h1>
+            <p class="lead mb-5">
+                A necessidade de conversar e desabafar é uma parte fundamental da experiência humana. 
+                Compartilhar nossos pensamentos, sentimentos e experiências não apenas alivia o estresse, 
+                mas também nos ajuda a processar emoções, ganhar novas perspectivas e encontrar soluções 
+                para os desafios da vida. No Conversatórium, oferecemos um espaço seguro e acolhedor 
+                para você expressar-se livremente e receber o apoio de que precisa.
+            </p>
+            <h2 class="mb-4">Como podemos ajudar você hoje?</h2>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <a href="/ser-escutado" class="btn btn-primary btn-lg btn-block">
+                        Quero ser escutado
+                    </a>
+                    <p class="mt-2">Um ouvinte atento e compreensivo para seus pensamentos e sentimentos.</p>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <a href="/quero-solucoes" class="btn btn-success btn-lg btn-block">
+                        Quero soluções
+                    </a>
+                    <p class="mt-2">Orientação pragmática e ideias para resolver seus desafios.</p>
+                </div>
+            </div>
+        </div>
     </div>
-    <form id="chatForm" class="chat-form">
-        <input type="text" id="messageInput" placeholder="Digite sua mensagem..." required>
-        <button type="submit">Enviar</button>
-    </form>
 </div>
 {% endblock %}
 

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}Quero Soluções - Conversatórium{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-5 mb-4">Soluções Práticas para Seus Desafios</h1>
+    <p class="lead mb-4">
+        Quando enfrentamos problemas, às vezes precisamos de orientação prática e ideias concretas. No Conversatórium, estamos sempre prontos para ajudar você a encontrar soluções pragmáticas para seus desafios. Não importa a hora, haverá sempre alguém disponível para oferecer suporte e orientação, mesmo que às vezes as soluções possam parecer ousadas ou não convencionais.
+    </p>
+    <div class="chat-container">
+        <div class="chat-messages" id="chatMessages">
+            <!-- As mensagens serão inseridas aqui dinamicamente -->
+        </div>
+        <form id="chatForm" class="chat-form">
+            <input type="text" id="messageInput" placeholder="Descreva seu desafio..." required>
+            <button type="submit">Buscar Soluções</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const chatForm = document.getElementById('chatForm');
+    const messageInput = document.getElementById('messageInput');
+    const chatMessages = document.getElementById('chatMessages');
+
+    chatForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const message = messageInput.value.trim();
+        if (message) {
+            addMessage('Você', message);
+            messageInput.value = '';
+            
+            fetch('/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({message: message}),
+            })
+            .then(response => response.json())
+            .then(data => {
+                addMessage('Conselheiro', data.response);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                addMessage('Sistema', 'Ocorreu um erro ao processar sua mensagem.');
+            });
+        }
+    });
+
+    function addMessage(sender, text) {
+        const messageElement = document.createElement('div');
+        messageElement.className = 'message';
+        messageElement.innerHTML = `<strong>${sender}:</strong> ${text.replace(/\n/g, '<br>')}`;
+        chatMessages.appendChild(messageElement);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // Mensagem inicial
+    addMessage('Conselheiro', 'Olá! Estou aqui para ajudar você a encontrar soluções práticas e, às vezes, ousadas para seus desafios. Qual é o problema que você gostaria de resolver hoje?');
+});
+</script>
+{% endblock %}
